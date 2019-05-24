@@ -1,0 +1,2096 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     78911,       2088]
+NotebookOptionsPosition[     75237,       2020]
+NotebookOutlinePosition[     75580,       2035]
+CellTagsIndexPosition[     75537,       2032]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "csvPath", " ", "=", " ", 
+   "\"\<M:\\\\JI Courses\\\\Sophomore_Year\\\\2019_Spring\\\\VE401\\\\Proj2\\\
+\\Figures\\\\2\\\\data.csv\>\""}], ";"}], "\n", 
+ RowBox[{"SystemOpen", "@", "csvPath"}], "\n", 
+ RowBox[{
+  RowBox[{"Data", " ", "=", " ", 
+   RowBox[{"Import", "[", "csvPath", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PosDate", " ", "=", " ", 
+   RowBox[{"Position", "[", 
+    RowBox[{"Data", ",", "\"\<2019-01-01\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AllDate", " ", "=", " ", 
+   RowBox[{"Data", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"2", ";;", 
+       RowBox[{
+        RowBox[{"PosDate", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", "1"}]}], ",", 
+      RowBox[{
+       RowBox[{"PosDate", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}], ";;", 
+       RowBox[{"PosDate", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}]}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", 
+     RowBox[{"Length", "[", "AllDate", "]"}]}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{
+     RowBox[{"AllDate", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"DateObject", "[", 
+      RowBox[{
+       RowBox[{"StringCases", "[", 
+        RowBox[{
+         RowBox[{"AllDate", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"x", ":", 
+           RowBox[{"DatePattern", "[", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+             "}"}], "]"}]}], "\[RuleDelayed]", 
+          RowBox[{"DateList", "[", "x", "]"}]}]}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "1"}], ",", 
+         RowBox[{"1", ";;", "3"}]}], "]"}], "]"}], "]"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Count1", " ", "=", " ", 
+   RowBox[{"Tally", "[", "AllDate", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Count2", " ", "=", " ", 
+  RowBox[{"Tally", "[", 
+   RowBox[{"Count1", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7647361392529087`*^9, 3.764736148620557*^9}, {
+   3.7647361964458804`*^9, 3.764736200838312*^9}, 3.7647362710103602`*^9, {
+   3.7647363315823736`*^9, 3.7647363353363395`*^9}},
+ CellLabel->
+  "In[651]:=",ExpressionUUID->"6c6ba614-4496-434e-ac5d-80379671702e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "324"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "287"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "310"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "227"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "53"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "116"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "11"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.764736154718102*^9, {3.7647362604189463`*^9, 3.764736284846464*^9}, 
+   3.764736338961949*^9, 3.764738282130396*^9},
+ CellLabel->
+  "Out[658]=",ExpressionUUID->"cc0bf8c6-d56f-4a42-b077-126fed7710cc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Occurence", " ", "of", " ", "number", " ", "of", " ", "shoot", " ", "in", 
+    " ", "a", " ", "day"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"n", "=", 
+     RowBox[{"365", "+", "366", "+", "365", "+", "365"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NumZero", " ", "=", " ", "n"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"i", "=", "1"}], ",", 
+      RowBox[{"i", "\[LessEqual]", "10"}], ",", 
+      RowBox[{"i", "++"}], ",", 
+      RowBox[{"NumZero", " ", "=", " ", 
+       RowBox[{"NumZero", "-", 
+        RowBox[{"Count2", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Insert", "[", 
+    RowBox[{"Count2", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "NumZero"}], "}"}], ",", "1"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7647382985734773`*^9, {3.7647394908151274`*^9, 3.764739503552081*^9}, {
+   3.7647415542689667`*^9, 3.764741573024832*^9}},
+ CellLabel->
+  "In[887]:=",ExpressionUUID->"68d732a5-da7c-4ed2-8524-14ee5b8ecbcb"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "108"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "324"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "287"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "310"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "227"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "53"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "116"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "11"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7647382866593323`*^9, 3.764738299898938*^9}, 
+   3.7647395055178614`*^9, 3.7647413607125545`*^9, 3.7647415764117785`*^9},
+ CellLabel->
+  "Out[890]=",ExpressionUUID->"f9b3ab6d-60bf-46a0-850a-fd8cc4c3375f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "fit", " ", "done", " ", "by", " ", "Mathematica"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<HypothesisTesting`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"TestData", " ", "=", " ", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "108"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"1", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "287"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"2", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "324"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"3", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "310"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "227"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"5", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "116"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"6", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "53"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"7", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "21"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"8", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "11"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"9", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{"10", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "1"}], "}"}]}], "]"}]}], "]"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"PearsonChiSquareTest", "[", 
+    RowBox[{"TestData", ",", 
+     RowBox[{"PoissonDistribution", "[", "k1", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<FittedDistributionParameters\>\"", ",", "\"\<DegreesOfFreedom\>\"",
+        ",", "\"\<TestDataTable\>\""}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7647413066540537`*^9, 3.764741324241044*^9}, {
+  3.7647413936914854`*^9, 3.7647414332792425`*^9}, {3.7647444924396315`*^9, 
+  3.764744493037035*^9}, {3.7647446198554726`*^9, 3.764744621236781*^9}},
+ CellLabel->
+  "In[306]:=",ExpressionUUID->"0a47b9f5-a18f-4504-9d89-9c4b7223e51c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"k1", "\[Rule]", "2.698836413415469`"}], "}"}], ",", "6", ",", 
+   StyleBox[
+    TagBox[GridBox[{
+       {"\<\"\"\>", "\<\"Statistic\"\>", "\<\"P\[Hyphen]Value\"\>"},
+       {"\<\"Pearson \\!\\(\\*SuperscriptBox[\\(\[Chi]\\),\\(2\\)]\\)\"\>", 
+        "8.065318977894323`", "0.23335683557661313`"}
+      },
+      AutoDelete->False,
+      GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+      GridBoxDividers->{
+       "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+        "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+      GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+     "Grid"], "DialogStyle",
+    StripOnInput->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.764739120068738*^9, 3.7647395085976286`*^9, 
+  3.7647413956472583`*^9, 3.7647414362872276`*^9, 3.7647444937551165`*^9, 
+  3.7647446219907656`*^9, 3.7648356901247377`*^9},
+ CellLabel->
+  "Out[308]=",ExpressionUUID->"bd1044f6-ba73-4cd1-a155-027c0d2f5229"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "The", " ", "fit", " ", "done", " ", "considering", " ", "Pearson", " ", 
+   "Criteria", " ", "3.1", ".2"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.7647414377333283`*^9, 3.7647414859873447`*^9}, {
+  3.7647421294462605`*^9, 
+  3.7647421358301954`*^9}},ExpressionUUID->"9c688e56-6210-4163-ab66-\
+7bcb1a35e070"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Count2", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "108"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "287"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "324"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "310"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "227"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "116"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6", ",", "53"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7", ",", "21"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"9", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10", ",", "1"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k2", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "11"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"k2", " ", "=", " ", 
+     RowBox[{"k2", "+", 
+      RowBox[{
+       RowBox[{"Count2", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "1"}], "]"}], "]"}], "*", 
+       RowBox[{"Count2", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"k2", " ", "=", " ", 
+  RowBox[{"N", "[", 
+   RowBox[{"k2", "/", "n"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7647415062684517`*^9, 3.764741525052281*^9}, {
+   3.76474237510933*^9, 3.7647423827908363`*^9}, {3.7647424642350955`*^9, 
+   3.764742473578122*^9}, 3.764742516524639*^9},
+ CellLabel->
+  "In[325]:=",ExpressionUUID->"5d2848f9-b4b7-46a4-981f-69aedbb06cce"],
+
+Cell[BoxData["2.698836413415469`"], "Output",
+ CellChangeTimes->{{3.7647414971687956`*^9, 3.764741527481799*^9}, 
+   3.7647423881474795`*^9, {3.76474246549872*^9, 3.764742478591067*^9}, 
+   3.764742517085141*^9, {3.7648357309107*^9, 3.7648357571106324`*^9}},
+ CellLabel->
+  "Out[328]=",ExpressionUUID->"c080c6be-f86a-4bd2-8269-122e5742f556"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"e", "=", " ", 
+   RowBox[{"N", "[", 
+    RowBox[{"Exp", "[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CRV", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "0"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "10"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"CRV", " ", "=", 
+     RowBox[{"Insert", "[", 
+      RowBox[{"CRV", ",", 
+       RowBox[{
+        RowBox[{"e", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "k2"}], ")"}]}], "*", 
+        RowBox[{
+         RowBox[{"k2", "^", "i"}], "/", 
+         RowBox[{"Factorial", "[", "i", "]"}]}]}], ",", 
+       RowBox[{"-", "1"}]}], "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CRV", "[", 
+    RowBox[{"[", "11", "]"}], "]"}], "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "10"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{
+     RowBox[{"CRV", "[", 
+      RowBox[{"[", "11", "]"}], "]"}], " ", "=", " ", 
+     RowBox[{
+      RowBox[{"CRV", "[", 
+       RowBox[{"[", "11", "]"}], "]"}], "-", 
+      RowBox[{"CRV", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", "CRV"}], "Input",
+ CellChangeTimes->{{3.764741839385127*^9, 3.764741842633444*^9}, {
+  3.7647426745024977`*^9, 3.7647426870659447`*^9}, {3.764761346572228*^9, 
+  3.764761347564575*^9}, {3.76476141333477*^9, 3.7647614644232097`*^9}},
+ CellLabel->
+  "In[329]:=",ExpressionUUID->"d9c4002a-b2fd-44a1-a5d2-e6fdbfd1edf1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.06728375768633715`", ",", "0.18158785527530966`", ",", 
+   "0.24503795802551198`", ",", "0.220439121262741`", ",", 
+   "0.1487322818512984`", ",", "0.08028081962213136`", ",", 
+   "0.03611079988250787`", ",", "0.01392244880578161`", ",", 
+   "0.004696801475119516`", ",", "0.0014084332052928933`", ",", 
+   "0.000499722907968528`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.764741535980934*^9, 3.764741858715457*^9, 3.76474254103915*^9, {
+   3.7647426807857027`*^9, 3.764742687399026*^9}, {3.764761445006147*^9, 
+   3.764761464894948*^9}, 3.764835808642885*^9},
+ CellLabel->
+  "Out[334]=",ExpressionUUID->"19b0c298-e35c-4de7-8909-4e12fbf849e5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ExpectedE", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "0"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "10"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"ExpectedE", " ", "=", 
+     RowBox[{"Insert", "[", 
+      RowBox[{"ExpectedE", ",", 
+       RowBox[{"n", "*", 
+        RowBox[{"CRV", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ",", 
+       RowBox[{"-", "1"}]}], "]"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", "ExpectedE"}], "Input",
+ CellChangeTimes->{3.764761549040062*^9},
+ CellLabel->
+  "In[335]:=",ExpressionUUID->"90779aae-e5b0-4777-88c6-39855bcc8f36"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "98.30156997973859`", ",", "265.29985655722743`", ",", "358.000456675273`", 
+   ",", "322.0615561648646`", ",", "217.29786378474694`", ",", 
+   "117.29027746793392`", ",", "52.757878628344`", ",", "20.34069770524693`", 
+   ",", "6.862026955149613`", ",", "2.057720912932917`", ",", 
+   "0.7300951685420194`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7647415451473494`*^9, 3.764741860805904*^9, 3.764742543406782*^9, {
+   3.764761509985458*^9, 3.7647615134512067`*^9}, 3.764761553616793*^9, 
+   3.764835811910192*^9},
+ CellLabel->
+  "Out[337]=",ExpressionUUID->"65b705b2-f052-4faa-accd-663466f0daf5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "We", " ", "see", " ", "that", " ", "the", " ", "Pearson", " ", 
+     "Criteria", " ", "3.1", ".2", " ", "is", " ", "not", " ", "satisfied"}], 
+    ",", " ", 
+    RowBox[{
+    "therefore", " ", "we", " ", "merge", " ", "the", " ", "last", " ", "2", 
+     " ", "categories", " ", "and", " ", "obtain", " ", "the", " ", 
+     "following"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Count3", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "108"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "287"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "324"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "310"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "227"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "116"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "53"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", "21"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "11"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", "4"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NewCRV", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.06728375768633715`", ",", "0.18158785527530966`", ",", 
+       "0.24503795802551198`", ",", "0.220439121262741`", ",", 
+       "0.1487322818512984`", ",", "0.08028081962213136`", ",", 
+       "0.03611079988250787`", ",", "0.01392244880578161`", ",", 
+       "0.004696801475119516`", ",", 
+       RowBox[{"0.0014084332052928933`", "+", "0.000499722907968528`"}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NewExpectedE", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "98.30156997973859`", ",", "265.29985655722743`", ",", 
+       "358.000456675273`", ",", "322.0615561648646`", ",", 
+       "217.29786378474694`", ",", "117.29027746793392`", ",", 
+       "52.757878628344`", ",", "20.34069770524693`", ",", 
+       "6.862026955149613`", ",", 
+       RowBox[{"2.057720912932917`", "+", "0.7300951685420194`"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NewObservedE", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "108", ",", "287", ",", "324", ",", "310", ",", "227", ",", "116", ",", 
+       "53", ",", "21", ",", "11", ",", 
+       RowBox[{"3", "+", "1"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "The", " ", "Degree", " ", "of", " ", "Fredom", " ", "is", " ", "found", 
+     " ", "by"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"DegreesOfFreedom", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Length", "[", "NewExpectedE", "]"}], "-", "1", "-", 
+     "1"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.7647421153379717`*^9, 3.764742143410932*^9}, {
+   3.764742177564373*^9, 3.7647422225112295`*^9}, {3.7647422725714684`*^9, 
+   3.7647423095276875`*^9}, {3.7647426279562974`*^9, 3.764742630799697*^9}, {
+   3.764742664202081*^9, 3.764742709152877*^9}, {3.76474279402691*^9, 
+   3.764742828909669*^9}, {3.76474288644491*^9, 3.7647429026346*^9}, {
+   3.7647429348154655`*^9, 3.7647429963350224`*^9}, {3.7647430658302603`*^9, 
+   3.764743072602194*^9}, {3.764743104527819*^9, 3.7647431171829915`*^9}, 
+   3.7647438732843456`*^9, {3.764744680784607*^9, 3.7647446861542563`*^9}, {
+   3.764761602648757*^9, 3.764761635786189*^9}, {3.764761688141197*^9, 
+   3.7647617037914066`*^9}},
+ CellLabel->
+  "In[1454]:=",ExpressionUUID->"6d8f5b8b-e863-4207-9824-1ab845dad8b2"],
+
+Cell[BoxData["8"], "Output",
+ CellChangeTimes->{{3.764742990089717*^9, 3.7647430015451303`*^9}, {
+   3.7647430688971*^9, 3.764743073395039*^9}, 3.7647438743844414`*^9, {
+   3.7647446810987687`*^9, 3.7647446864325104`*^9}, 3.7647617071244545`*^9},
+ CellLabel->
+  "Out[1458]=",ExpressionUUID->"8e933288-68c4-4513-a68b-295676ec8a6b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "Pearson", " ", "Statistic", " ", "is", " ", "found", " ", 
+    "by"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Stat", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"i", "=", "1"}], ",", 
+      RowBox[{"i", "\[LessEqual]", "10"}], ",", 
+      RowBox[{"i", "++"}], ",", 
+      RowBox[{"Stat", "=", 
+       RowBox[{"Stat", "+", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"NewObservedE", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "-", 
+            RowBox[{"NewExpectedE", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "^", "2"}], "/", 
+         RowBox[{"NewExpectedE", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}]}]}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "Stat"}]}]], "Input",
+ CellChangeTimes->{{3.764743124805616*^9, 3.764743223252466*^9}, {
+  3.764743763269418*^9, 3.7647437745742345`*^9}},
+ CellLabel->
+  "In[1464]:=",ExpressionUUID->"a36f5a58-c7f1-48cf-b62f-0f70bf32dd4c"],
+
+Cell[BoxData["9.904898893174478`"], "Output",
+ CellChangeTimes->{
+  3.7647432236793513`*^9, 3.764743775620438*^9, {3.764761712554938*^9, 
+   3.764761722667942*^9}},
+ CellLabel->
+  "Out[1466]=",ExpressionUUID->"b48bf522-5960-4d04-982f-461a63612b4e"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Fix", " ", "alpha"}], "=", "0.05"}], ",", " ", 
+   RowBox[{"we", " ", "test", " ", "the", " ", "null", " ", "hypothesis"}], 
+   ",", " ", 
+   RowBox[{"and", " ", "fail", " ", "to", " ", "reject", " ", "it"}]}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.7647436223375807`*^9, 3.7647436399235663`*^9}, {
+  3.764743679598515*^9, 
+  3.7647436908285294`*^9}},ExpressionUUID->"043ce4d5-7c44-4b50-b666-\
+56e44860eb73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"CDF", "[", 
+     RowBox[{
+      RowBox[{"ChiSquareDistribution", "[", "DegreesOfFreedom", "]"}], ",", 
+      "x"}], "]"}], "\[Equal]", "0.95"}], ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.764743645421869*^9, 3.764743663619279*^9}, 
+   3.7647438817497177`*^9},
+ CellLabel->
+  "In[1467]:=",ExpressionUUID->"ffa99023-774c-4beb-b704-67da62434afa"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,1467,124,26428484012107921330,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.76474365724131*^9, 3.764743667102959*^9}, 
+   3.76474388230627*^9, {3.7647617166320763`*^9, 3.7647617252869062`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1467]:=",ExpressionUUID->"07695838-cb4f-4132-8068-bbe700020b43"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"x", "\[Rule]", "15.50731305586545`"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7647436572443056`*^9, 3.7647436671298437`*^9}, 
+   3.764743882336194*^9, {3.7647617166640053`*^9, 3.7647617253158293`*^9}},
+ CellLabel->
+  "Out[1467]=",ExpressionUUID->"3f1f2499-70a0-420c-ac36-046c111cf939"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"The", " ", "P", " ", "value", " ", "is", " ", "found", " ", 
+   RowBox[{"by", ":"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.764743783340766*^9, 3.7647437984254436`*^9}},
+ CellLabel->
+  "In[1002]:=",ExpressionUUID->"2ca77612-193a-4a12-9bdc-80edd1111b77"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PValue", " ", "=", " ", 
+  RowBox[{"1", "-", 
+   RowBox[{"CDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", "DegreesOfFreedom", "]"}], ",", 
+     "Stat"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7647438041461725`*^9, 3.7647438222078743`*^9}, {
+  3.7647438637977037`*^9, 3.764743870826952*^9}},
+ CellLabel->
+  "In[1469]:=",ExpressionUUID->"5c1ccc8b-4867-47b7-87de-c3135babc617"],
+
+Cell[BoxData["0.27176434709543607`"], "Output",
+ CellChangeTimes->{3.764761739354303*^9},
+ CellLabel->
+  "Out[1469]=",ExpressionUUID->"1bbd6819-2301-400e-99c9-af0813dab392"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"The", " ", "Histograms", " ", "are", " ", "created", " ", "as"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.7647446271778994`*^9, 3.764744636894964*^9}, {
+   3.764745446095555*^9, 3.7647454464945297`*^9}, 
+   3.7647454828353477`*^9},ExpressionUUID->"4b940430-5ff2-47a3-b62d-\
+fd321e0a4ed6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ExpectedData", " ", "=", " ", 
+   RowBox[{"Join", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "98.30156997973859`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"1", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "265.29985655722743`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"2", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "358.000456675273`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"3", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "322.0615561648646`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"4", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "217.29786378474694`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"5", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "117.29027746793392`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"6", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "52.757878628344`"}], "}"}]}], "]"}], ",",
+      "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{"7", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "20.34069770524693`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"8", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "6.862026955149613`"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"9", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "2.057720912932917`"}], "}"}]}], "]"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{"10", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "0.7300951685420194`"}], "}"}]}], "]"}]}],
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", "TestData", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", "ExpectedData", "]"}]}], "Input",
+ CellChangeTimes->{{3.7647446991964273`*^9, 3.7647448201989822`*^9}, {
+  3.7647448537692165`*^9, 3.764744947952462*^9}, {3.7647450211633763`*^9, 
+  3.7647450763049765`*^9}, {3.764745323067442*^9, 3.764745392977583*^9}, {
+  3.764745442772437*^9, 3.764745462273346*^9}, {3.7648356143941174`*^9, 
+  3.764835644915532*^9}},
+ CellLabel->
+  "In[338]:=",ExpressionUUID->"c8f77cf8-f3dc-44cb-b0d4-15f6c2fd028f"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.609], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.609], Thickness[Small]}], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{-0.5, 0}, {0.5, 108.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{27.235188150520415`, 57.213316107431396`}, {
+          27.114827568124454`, 92.32840450262978}}],
+        StatusArea[#, 108]& ,
+        TagBoxNote->"108"],
+       StyleBox["108", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[108, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{0.5, 0}, {1.5, 287.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{56.713316107431396`, 
+          86.69144406434239}, {-80.14193420295382, 92.32840450262978}}],
+        StatusArea[#, 287]& ,
+        TagBoxNote->"287"],
+       StyleBox["287", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[287, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{1.5, 0}, {2.5, 324.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{86.19144406434239, 
+          116.16957202125337`}, {-102.31232630088621`, 92.32840450262978}}],
+        StatusArea[#, 324]& ,
+        TagBoxNote->"324"],
+       StyleBox["324", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[324, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{2.5, 0}, {3.5, 310.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{115.66957202125337`, 
+          145.64769997816435`}, {-93.92352929085774, 92.32840450262978}}],
+        StatusArea[#, 310]& ,
+        TagBoxNote->"310"],
+       StyleBox["310", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[310, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{3.5, 0}, {4.5, 227.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{145.14769997816435`, 
+          175.12582793507534`}, {-44.18994701711753, 92.32840450262978}}],
+        StatusArea[#, 227]& ,
+        TagBoxNote->"227"],
+       StyleBox["227", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[227, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{4.5, 0}, {5.5, 116.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{174.62582793507534`, 204.60395589198632`}, {
+          22.321229276679617`, 92.32840450262978}}],
+        StatusArea[#, 116]& ,
+        TagBoxNote->"116"],
+       StyleBox["116", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[116, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{5.5, 0}, {6.5, 53.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{204.10395589198632`, 234.0820838488973}, {
+          60.07081582180772, 92.32840450262978}}],
+        StatusArea[#, 53]& ,
+        TagBoxNote->"53"],
+       StyleBox["53", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[53, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{6.5, 0}, {7.5, 21.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{233.5820838488973, 263.5602118058083}, {
+          79.24520898758708, 92.32840450262978}}],
+        StatusArea[#, 21]& ,
+        TagBoxNote->"21"],
+       StyleBox["21", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[21, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{7.5, 0}, {8.5, 11.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{263.0602118058083, 293.03833976271926`}, {
+          85.23720685189312, 92.32840450262978}}],
+        StatusArea[#, 11]& ,
+        TagBoxNote->"11"],
+       StyleBox["11", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[11, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{8.5, 0}, {9.5, 3.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{292.53833976271926`, 322.5164677196302}, {
+          90.03080514333797, 92.32840450262978}}],
+        StatusArea[#, 3]& ,
+        TagBoxNote->"3"],
+       StyleBox["3", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[3, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{9.5, 0}, {10.5, 1.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{322.0164677196302, 351.9945956765413}, {
+          91.22920471619918, 92.32840450262978}}],
+        StatusArea[#, 1]& ,
+        TagBoxNote->"1"],
+       StyleBox["1", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[1, {}], 
+       "Tooltip"]& ]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-0.72, 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-0.5, 10.5}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7647449334422865`*^9, 3.7647449483962755`*^9}, {
+   3.7647450767807055`*^9, 3.7647450934062653`*^9}, {3.7647453250431337`*^9, 
+   3.7647453373881273`*^9}, {3.7647453707150445`*^9, 3.7647453937614403`*^9}, 
+   3.764745463630718*^9, 3.764835647645271*^9, 3.764835824888497*^9},
+ CellLabel->
+  "Out[339]=",ExpressionUUID->"d646ef68-cb58-4d1b-aca4-00b1c6e0b481"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.616], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.616], Thickness[Small]}], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{-0.5, 0}, {0.5, 98.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{27.23518815052042, 60.1611289031225}, {
+          38.68373517652768, 92.32840450262984}}],
+        StatusArea[#, 98]& ,
+        TagBoxNote->"98"],
+       StyleBox["98", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[98, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{0.5, 0}, {1.5, 265.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{59.6611289031225, 
+          92.58706965572458}, {-51.87911969550356, 92.32840450262984}}],
+        StatusArea[#, 265]& ,
+        TagBoxNote->"265"],
+       StyleBox["265", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[265, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{1.5, 0}, {2.5, 358.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{92.08706965572458, 
+          125.01301040832666`}, {-102.31232630088621`, 92.32840450262984}}],
+        StatusArea[#, 358]& ,
+        TagBoxNote->"358"],
+       StyleBox["358", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[358, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{2.5, 0}, {3.5, 322.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{124.51301040832666`, 
+          157.43895116092875`}, {-82.78979471170584, 92.32840450262984}}],
+        StatusArea[#, 322]& ,
+        TagBoxNote->"322"],
+       StyleBox["322", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[322, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{3.5, 0}, {4.5, 217.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{156.93895116092875`, 
+          189.8648919135308}, {-25.849077576596372`, 92.32840450262984}}],
+        StatusArea[#, 217]& ,
+        TagBoxNote->"217"],
+       StyleBox["217", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[217, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{4.5, 0}, {5.5, 117.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{189.3648919135308, 222.2908326661329}, {
+          28.380176837793584`, 92.32840450262984}}],
+        StatusArea[#, 117]& ,
+        TagBoxNote->"117"],
+       StyleBox["117", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[117, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{5.5, 0}, {6.5, 52.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{221.7908326661329, 254.716773418735}, {
+          63.62919220714706, 92.32840450262984}}],
+        StatusArea[#, 52]& ,
+        TagBoxNote->"52"],
+       StyleBox["52", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[52, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{6.5, 0}, {7.5, 20.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{254.216773418735, 287.14271417133705`}, {
+          80.98255361975184, 92.32840450262984}}],
+        StatusArea[#, 20]& ,
+        TagBoxNote->"20"],
+       StyleBox["20", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[20, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{7.5, 0}, {8.5, 6.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{286.64271417133705`, 319.5686549239391}, {
+          88.57464923776644, 92.32840450262984}}],
+        StatusArea[#, 6]& ,
+        TagBoxNote->"6"],
+       StyleBox["6", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[6, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          RectangleBox[{8.5, 0}, {9.5, 2.}, "RoundingRadius" -> 0]},
+         ImageSizeCache->{{319.0686549239391, 351.9945956765413}, {
+          90.74381941434204, 92.32840450262984}}],
+        StatusArea[#, 2]& ,
+        TagBoxNote->"2"],
+       StyleBox["2", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[2, {}], 
+       "Tooltip"]& ]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-0.7, 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-0.5, 9.5}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7647449334422865`*^9, 3.7647449483962755`*^9}, {
+   3.7647450767807055`*^9, 3.7647450934062653`*^9}, {3.7647453250431337`*^9, 
+   3.7647453373881273`*^9}, {3.7647453707150445`*^9, 3.7647453937614403`*^9}, 
+   3.764745463630718*^9, 3.764835647645271*^9, 3.7648358249542847`*^9},
+ CellLabel->
+  "Out[340]=",ExpressionUUID->"c8ab1e06-1ba6-4372-bd27-b0eda1e65497"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"The", " ", "BarCharts", " ", "are", " ", "created", " ", "as"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.7647454662706738`*^9, 
+  3.7647454877123117`*^9}},ExpressionUUID->"37cb543e-01de-4069-a3d8-\
+56de06c5cf3a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"BarO", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "108", ",", "287", ",", "324", ",", "310", ",", "227", ",", "116", ",", 
+     "53", ",", "21", ",", "11", ",", "3", ",", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BarE", "=", " ", "ExpectedE"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"BarChart", "[", 
+  RowBox[{"BarO", ",", 
+   RowBox[{"ChartLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<0\>\"", ",", "\"\<1\>\"", ",", "\"\<2\>\"", ",", "\"\<3\>\"", ",", 
+      "\"\<4\>\"", ",", "\"\<5\>\"", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<8\>\"", ",", "\"\<9\>\"", ",", "\"\<10+\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"BarChart", "[", 
+  RowBox[{"BarE", ",", 
+   RowBox[{"ChartLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<0\>\"", ",", "\"\<1\>\"", ",", "\"\<2\>\"", ",", "\"\<3\>\"", ",", 
+      "\"\<4\>\"", ",", "\"\<5\>\"", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<8\>\"", ",", "\"\<9\>\"", ",", "\"\<10+\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.764745490627519*^9, 3.764745532879614*^9}, {
+   3.764745568164265*^9, 3.764745589296774*^9}, {3.7647457677577457`*^9, 
+   3.7647458268567734`*^9}, {3.7647464259272842`*^9, 3.764746456751856*^9}, {
+   3.7647718772457414`*^9, 3.764771879316208*^9}, {3.7648352022358255`*^9, 
+   3.7648352141539683`*^9}, 3.7648359561575994`*^9},
+ CellLabel->
+  "In[341]:=",ExpressionUUID->"4500841c-8d58-4748-b135-ff49da0dfca7"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{0.332737030411449, 0.}, {11.44929131691207, 0.}}]}, {{}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+     Thickness[Small]}], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0.5507086830879317, 0.}, {1.4492913169120683`, 108.},
+             "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{27.11489890073677, 53.85403388925387}, {
+           28.066303155409386`, 94.64548819746446}}],
+         StatusArea[#, 108]& ,
+         TagBoxNote->"108"],
+        StyleBox["108", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[108, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{1.5507086830879317`, 0.}, {2.4492913169120683`, 
+            287.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{55.81547990556889, 
+           83.55461489408599}, {-81.95382760873747, 95.14548819746446}}],
+         StatusArea[#, 287]& ,
+         TagBoxNote->"287"],
+        StyleBox["287", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[287, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{2.5507086830879317`, 0.}, {3.4492913169120683`, 
+            324.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{85.51606091040101, 
+           112.2551958989181}, {-104.09206692870077`, 94.64548819746446}}],
+         StatusArea[#, 324]& ,
+         TagBoxNote->"324"],
+        StyleBox["324", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[324, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{3.5507086830879317`, 0.}, {4.449291316912069, 310.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{114.71664191523313`, 
+           141.45577690375023`}, {-95.52624664547142, 94.64548819746446}}],
+         StatusArea[#, 310]& ,
+         TagBoxNote->"310"],
+        StyleBox["310", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[310, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{4.550708683087932, 0.}, {5.449291316912069, 227.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{143.91722292006526`, 
+           170.65635790858235`}, {-44.74316925204019, 94.64548819746446}}],
+         StatusArea[#, 227]& ,
+         TagBoxNote->"227"],
+        StyleBox["227", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[227, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{5.550708683087932, 0.}, {6.449291316912069, 116.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{173.11780392489737`, 199.85693891341447`}, {
+           23.17154870784975, 94.64548819746446}}],
+         StatusArea[#, 116]& ,
+         TagBoxNote->"116"],
+        StyleBox["116", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[116, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{6.550708683087932, 0.}, {7.449291316912069, 53.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{202.3183849297295, 229.05751991824658`}, {
+           61.71773998238187, 94.64548819746446}}],
+         StatusArea[#, 53]& ,
+         TagBoxNote->"53"],
+        StyleBox["53", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[53, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{7.550708683087932, 0.}, {8.449291316912069, 21.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{231.5189659345616, 258.25810092307876`}, {
+           81.29675777262042, 94.64548819746446}}],
+         StatusArea[#, 21]& ,
+         TagBoxNote->"21"],
+        StyleBox["21", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[21, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{8.550708683087933, 0.}, {9.44929131691207, 11.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{260.71954693939375`, 287.4586819279109}, {
+           87.41520083206996, 94.64548819746446}}],
+         StatusArea[#, 11]& ,
+         TagBoxNote->"11"],
+        StyleBox["11", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[11, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{9.550708683087933, 0.}, {10.44929131691207, 3.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{289.9201279442259, 316.65926293274305`}, {
+           92.30995527962959, 94.64548819746446}}],
+         StatusArea[#, 3]& ,
+         TagBoxNote->"3"],
+        StyleBox["3", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[3, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{10.550708683087933`, 0.}, {11.44929131691207, 1.}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{319.12070894905804`, 345.85984393757514`}, {
+           93.5336438915195, 94.64548819746446}}],
+         StatusArea[#, 1]& ,
+         TagBoxNote->"1"],
+        StyleBox["1", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[1, {}], "Tooltip"]& ]}}, {}, {}}, {}, {}, {}, {}, 
+   StyleBox[
+    StyleBox[{
+      {Thickness[Tiny], 
+       LineBox[{{0.332737030411449, 0.}, {11.67162240264208, 0.}}], 
+       StyleBox[{}, "GraphicsLabel",
+        StripOnInput->False]}, 
+      StyleBox[{
+        {Thickness[Tiny], 
+         LineBox[{{0.5507086830879317, 0.}, 
+           Offset[{-1.102182119232618*^-15, -6.}, {0.5507086830879317, 0.}]}],
+          LineBox[{{11.449291316912069`, 0.}, 
+           Offset[{-1.102182119232618*^-15, -6.}, {11.449291316912069`, 
+            0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {
+           LineBox[{{1.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {1.4492913169120683`, 
+              0.}]}], LineBox[{{1.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {1.5507086830879317`, 
+              0.}]}], 
+           LineBox[{{2.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {2.4492913169120683`, 
+              0.}]}], LineBox[{{2.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {2.5507086830879317`, 
+              0.}]}], LineBox[{{3.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {3.4492913169120683`, 
+              0.}]}], LineBox[{{3.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {3.5507086830879317`, 
+              0.}]}], LineBox[{{4.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {4.449291316912069, 
+              0.}]}], LineBox[{{4.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {4.550708683087931, 
+              0.}]}], LineBox[{{5.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {5.449291316912069, 
+              0.}]}], LineBox[{{5.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {5.550708683087931, 
+              0.}]}], LineBox[{{6.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {6.449291316912069, 
+              0.}]}], LineBox[{{6.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {6.550708683087931, 
+              0.}]}], LineBox[{{7.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {7.449291316912069, 
+              0.}]}], LineBox[{{7.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {7.550708683087931, 
+              0.}]}], LineBox[{{8.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {8.449291316912069, 
+              0.}]}], LineBox[{{8.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {8.550708683087931, 
+              0.}]}], LineBox[{{9.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {9.449291316912069, 
+              0.}]}], LineBox[{{9.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {9.550708683087931, 
+              0.}]}], LineBox[{{10.449291316912069`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {10.449291316912069`, 
+              0.}]}], LineBox[{{10.550708683087931`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {10.550708683087931`, 
+              0.}]}]}, {}}}, 
+        StyleBox[
+         {Thickness[Tiny], 
+          InsetBox["\<\"0\"\>", Offset[{0, -2}, {1., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"1\"\>", Offset[{0, -2}, {2., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"2\"\>", Offset[{0, -2}, {3., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"3\"\>", Offset[{0, -2}, {4., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"4\"\>", Offset[{0, -2}, {5., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"5\"\>", Offset[{0, -2}, {6., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"6\"\>", Offset[{0, -2}, {7., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"7\"\>", Offset[{0, -2}, {8., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"8\"\>", Offset[{0, -2}, {9., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"9\"\>", Offset[{0, -2}, {10., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"10+\"\>", Offset[{0, -2}, {11., 0.}], {0, 1}, 
+           Automatic, {1, 0}]}, "GraphicsLabel",
+         StripOnInput->False]}, "GraphicsTicks",
+       StripOnInput->False]},
+     Antialiasing->False], "GraphicsAxes",
+    StripOnInput->False]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.332737030411449, 0.},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  DisplayFunction->Identity,
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{All, All}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{{3.7647455825528364`*^9, 3.7647455898303757`*^9}, {
+   3.764745776479471*^9, 3.7647457808317995`*^9}, {3.7647458146624002`*^9, 
+   3.764745830102129*^9}, {3.764746442935822*^9, 3.7647464571817417`*^9}, 
+   3.7647718843786745`*^9, 3.76483595756485*^9},
+ CellLabel->
+  "Out[343]=",ExpressionUUID->"7a3af1a5-76dd-4c6a-a719-d5de28d63419"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{0.332737030411449, 0.}, {11.44929131691207, 0.}}]}, {{}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+     Thickness[Small]}], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0.5507086830879317, 0.}, {1.4492913169120683`, 
+            98.30156997973859}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{27.114898900736762`, 53.854033889253856`}, {
+           39.71242104771245, 94.64548819746445}}],
+         StatusArea[#, 98.30156997973859]& ,
+         TagBoxNote->"98.30156997973859"],
+        StyleBox["98.30156997973859`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[98.30156997973859, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{1.5507086830879317`, 0.}, {2.4492913169120683`, 
+            265.29985655722743`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{56.31547990556888, 
+           83.05461489408596}, {-52.760455520175626`, 94.64548819746445}}],
+         StatusArea[#, 265.29985655722743`]& ,
+         TagBoxNote->"265.29985655722743"],
+        StyleBox["265.29985655722743`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[265.29985655722743`, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{2.5507086830879317`, 0.}, {3.4492913169120683`, 
+            358.000456675273}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{85.51606091040098, 
+           112.25519589891807`}, {-104.09206692870079`, 94.64548819746445}}],
+         StatusArea[#, 358.000456675273]& ,
+         TagBoxNote->"358.000456675273"],
+        StyleBox["358.000456675273`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[358.000456675273, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{3.5507086830879317`, 0.}, {4.449291316912069, 
+            322.0615561648646}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{114.7166419152331, 
+           141.4557769037502}, {-84.19142256285257, 94.64548819746445}}],
+         StatusArea[#, 322.0615561648646]& ,
+         TagBoxNote->"322.0615561648646"],
+        StyleBox["322.0615561648646`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[322.0615561648646, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{4.550708683087932, 0.}, {5.449291316912069, 
+            217.29786378474694`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{143.91722292006523`, 
+           170.65635790858232`}, {-26.180048956527685`, 94.64548819746445}}],
+         StatusArea[#, 217.29786378474694`]& ,
+         TagBoxNote->"217.29786378474694"],
+        StyleBox["217.29786378474694`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[217.29786378474694`, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{5.550708683087932, 0.}, {6.449291316912069, 
+            117.29027746793392`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{173.11780392489734`, 199.85693891341444`}, {
+           29.197699970470467`, 94.64548819746445}}],
+         StatusArea[#, 117.29027746793392`]& ,
+         TagBoxNote->"117.29027746793392"],
+        StyleBox["117.29027746793392`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[117.29027746793392`, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{6.550708683087932, 0.}, {7.449291316912069, 
+            52.757878628344}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{202.31838492972946`, 229.05751991824656`}, {
+           64.93157889116313, 94.64548819746445}}],
+         StatusArea[#, 52.757878628344]& ,
+         TagBoxNote->"52.757878628344"],
+        StyleBox["52.757878628344`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[52.757878628344, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{7.550708683087932, 0.}, {8.449291316912069, 
+            20.34069770524693}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{231.51896593456158`, 258.25810092307864`}, {
+           82.88212216688402, 94.64548819746445}}],
+         StatusArea[#, 20.34069770524693]& ,
+         TagBoxNote->"20.34069770524693"],
+        StyleBox["20.34069770524693`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[20.34069770524693, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{8.550708683087933, 0.}, {9.44929131691207, 
+            6.862026955149613}, "RoundingRadius" -> 0]},
+          ImageSizeCache->{{260.7195469393937, 287.45868192791085`}, {
+           90.34574039984479, 94.64548819746445}}],
+         StatusArea[#, 6.862026955149613]& ,
+         TagBoxNote->"6.862026955149613"],
+        StyleBox["6.862026955149613`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[6.862026955149613, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{9.550708683087933, 0.}, {10.44929131691207, 
+            2.057720912932917}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{289.92012794422584`, 316.65926293274293`}, {
+           93.00605511768542, 94.64548819746445}}],
+         StatusArea[#, 2.057720912932917]& ,
+         TagBoxNote->"2.057720912932917"],
+        StyleBox["2.057720912932917`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[2.057720912932917, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.623], 
+      Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{10.550708683087933`, 0.}, {11.44929131691207, 
+            0.7300951685420194}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{319.120708949058, 345.8598439375751}, {
+           93.74120859803233, 94.64548819746445}}],
+         StatusArea[#, 0.7300951685420194]& ,
+         TagBoxNote->"0.7300951685420194"],
+        StyleBox["0.7300951685420194`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.7300951685420194, {}], 
+        "Tooltip"]& ]}}, {}, {}}, {}, {}, {}, {}, 
+   StyleBox[
+    StyleBox[{
+      {Thickness[Tiny], 
+       LineBox[{{0.332737030411449, 0.}, {11.67162240264208, 0.}}], 
+       StyleBox[{}, "GraphicsLabel",
+        StripOnInput->False]}, 
+      StyleBox[{
+        {Thickness[Tiny], 
+         LineBox[{{0.5507086830879317, 0.}, 
+           Offset[{-1.102182119232618*^-15, -6.}, {0.5507086830879317, 0.}]}],
+          LineBox[{{11.449291316912069`, 0.}, 
+           Offset[{-1.102182119232618*^-15, -6.}, {11.449291316912069`, 
+            0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {
+           LineBox[{{1.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {1.4492913169120683`, 
+              0.}]}], LineBox[{{1.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {1.5507086830879317`, 
+              0.}]}], LineBox[{{2.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {2.4492913169120683`, 
+              0.}]}], LineBox[{{2.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {2.5507086830879317`, 
+              0.}]}], LineBox[{{3.4492913169120683`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {3.4492913169120683`, 
+              0.}]}], LineBox[{{3.5507086830879317`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {3.5507086830879317`, 
+              0.}]}], LineBox[{{4.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {4.449291316912069, 
+              0.}]}], LineBox[{{4.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {4.550708683087931, 
+              0.}]}], LineBox[{{5.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {5.449291316912069, 
+              0.}]}], LineBox[{{5.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {5.550708683087931, 
+              0.}]}], LineBox[{{6.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {6.449291316912069, 
+              0.}]}], LineBox[{{6.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {6.550708683087931, 
+              0.}]}], 
+           LineBox[{{7.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {7.449291316912069, 
+              0.}]}], LineBox[{{7.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {7.550708683087931, 
+              0.}]}], LineBox[{{8.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {8.449291316912069, 
+              0.}]}], LineBox[{{8.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {8.550708683087931, 
+              0.}]}], LineBox[{{9.449291316912069, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {9.449291316912069, 
+              0.}]}], LineBox[{{9.550708683087931, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {9.550708683087931, 
+              0.}]}], LineBox[{{10.449291316912069`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {10.449291316912069`, 
+              0.}]}], LineBox[{{10.550708683087931`, 0.}, 
+             Offset[{-7.347880794884119*^-16, -4.}, {10.550708683087931`, 
+              0.}]}]}, {}}}, 
+        StyleBox[
+         {Thickness[Tiny], 
+          InsetBox["\<\"0\"\>", Offset[{0, -2}, {1., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"1\"\>", Offset[{0, -2}, {2., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"2\"\>", Offset[{0, -2}, {3., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"3\"\>", Offset[{0, -2}, {4., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"4\"\>", Offset[{0, -2}, {5., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"5\"\>", Offset[{0, -2}, {6., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"6\"\>", Offset[{0, -2}, {7., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"7\"\>", Offset[{0, -2}, {8., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"8\"\>", Offset[{0, -2}, {9., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"9\"\>", Offset[{0, -2}, {10., 0.}], {0, 1}, 
+           Automatic, {1, 0}], 
+          InsetBox["\<\"10+\"\>", Offset[{0, -2}, {11., 0.}], {0, 1}, 
+           Automatic, {1, 0}]}, "GraphicsLabel",
+         StripOnInput->False]}, "GraphicsTicks",
+       StripOnInput->False]},
+     Antialiasing->False], "GraphicsAxes",
+    StripOnInput->False]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.332737030411449, 0.},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  DisplayFunction->Identity,
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{All, All}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{{3.7647455825528364`*^9, 3.7647455898303757`*^9}, {
+   3.764745776479471*^9, 3.7647457808317995`*^9}, {3.7647458146624002`*^9, 
+   3.764745830102129*^9}, {3.764746442935822*^9, 3.7647464571817417`*^9}, 
+   3.7647718843786745`*^9, 3.7648359576466293`*^9},
+ CellLabel->
+  "Out[344]=",ExpressionUUID->"afa4f77c-6fd4-42a6-b5c7-a486ba5d2d5d"]
+}, Open  ]]
+},
+WindowSize->{638, 628},
+WindowMargins->{{197, Automatic}, {Automatic, 46}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2648, 75, 333, "Input",ExpressionUUID->"6c6ba614-4496-434e-ac5d-80379671702e"],
+Cell[3231, 99, 881, 27, 52, "Output",ExpressionUUID->"cc0bf8c6-d56f-4a42-b077-126fed7710cc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4149, 131, 1196, 33, 105, "Input",ExpressionUUID->"68d732a5-da7c-4ed2-8524-14ee5b8ecbcb"],
+Cell[5348, 166, 945, 28, 52, "Output",ExpressionUUID->"f9b3ab6d-60bf-46a0-850a-fd8cc4c3375f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6330, 199, 2657, 69, 162, "Input",ExpressionUUID->"0a47b9f5-a18f-4504-9d89-9c4b7223e51c"],
+Cell[8990, 270, 1106, 24, 53, "Output",ExpressionUUID->"bd1044f6-ba73-4cd1-a155-027c0d2f5229"]
+}, Open  ]],
+Cell[10111, 297, 352, 8, 28, "Input",ExpressionUUID->"9c688e56-6210-4163-ab66-7bcb1a35e070"],
+Cell[CellGroupData[{
+Cell[10488, 309, 1778, 53, 105, "Input",ExpressionUUID->"5d2848f9-b4b7-46a4-981f-69aedbb06cce"],
+Cell[12269, 364, 341, 5, 32, "Output",ExpressionUUID->"c080c6be-f86a-4bd2-8269-122e5742f556"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12647, 374, 1678, 48, 143, "Input",ExpressionUUID->"d9c4002a-b2fd-44a1-a5d2-e6fdbfd1edf1"],
+Cell[14328, 424, 691, 14, 52, "Output",ExpressionUUID->"19b0c298-e35c-4de7-8909-4e12fbf849e5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15056, 443, 739, 21, 86, "Input",ExpressionUUID->"90779aae-e5b0-4777-88c6-39855bcc8f36"],
+Cell[15798, 466, 644, 13, 52, "Output",ExpressionUUID->"65b705b2-f052-4faa-accd-663466f0daf5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16479, 484, 3605, 86, 295, "Input",ExpressionUUID->"6d8f5b8b-e863-4207-9824-1ab845dad8b2"],
+Cell[20087, 572, 330, 5, 32, "Output",ExpressionUUID->"8e933288-68c4-4513-a68b-295676ec8a6b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20454, 582, 1133, 31, 124, "Input",ExpressionUUID->"a36f5a58-c7f1-48cf-b62f-0f70bf32dd4c"],
+Cell[21590, 615, 248, 5, 32, "Output",ExpressionUUID->"b48bf522-5960-4d04-982f-461a63612b4e"]
+}, Open  ]],
+Cell[21853, 623, 478, 12, 48, "Input",ExpressionUUID->"043ce4d5-7c44-4b50-b666-56e44860eb73"],
+Cell[CellGroupData[{
+Cell[22356, 639, 425, 11, 28, "Input",ExpressionUUID->"ffa99023-774c-4beb-b704-67da62434afa"],
+Cell[22784, 652, 547, 11, 45, "Message",ExpressionUUID->"07695838-cb4f-4132-8068-bbe700020b43"],
+Cell[23334, 665, 350, 7, 32, "Output",ExpressionUUID->"3f1f2499-70a0-420c-ac36-046c111cf939"]
+}, Open  ]],
+Cell[23699, 675, 297, 6, 28, "Input",ExpressionUUID->"2ca77612-193a-4a12-9bdc-80edd1111b77"],
+Cell[CellGroupData[{
+Cell[24021, 685, 423, 10, 28, "Input",ExpressionUUID->"5c1ccc8b-4867-47b7-87de-c3135babc617"],
+Cell[24447, 697, 173, 3, 32, "Output",ExpressionUUID->"1bbd6819-2301-400e-99c9-af0813dab392"]
+}, Open  ]],
+Cell[24635, 703, 332, 7, 28, "Input",ExpressionUUID->"4b940430-5ff2-47a3-b62d-fd321e0a4ed6"],
+Cell[CellGroupData[{
+Cell[24992, 714, 2526, 68, 276, "Input",ExpressionUUID->"c8f77cf8-f3dc-44cb-b0d4-15f6c2fd028f"],
+Cell[27521, 784, 8056, 226, 239, "Output",ExpressionUUID->"d646ef68-cb58-4d1b-aca4-00b1c6e0b481"],
+Cell[35580, 1012, 7413, 208, 239, "Output",ExpressionUUID->"c8ab1e06-1ba6-4372-bd27-b0eda1e65497"]
+}, Open  ]],
+Cell[43008, 1223, 256, 6, 28, "Input",ExpressionUUID->"37cb543e-01de-4069-a3d8-56de06c5cf3a"],
+Cell[CellGroupData[{
+Cell[43289, 1233, 1524, 34, 124, "Input",ExpressionUUID->"4500841c-8d58-4748-b135-ff49da0dfca7"],
+Cell[44816, 1269, 14787, 373, 242, "Output",ExpressionUUID->"7a3af1a5-76dd-4c6a-a719-d5de28d63419"],
+Cell[59606, 1644, 15615, 373, 274, "Output",ExpressionUUID->"afa4f77c-6fd4-42a6-b5c7-a486ba5d2d5d"]
+}, Open  ]]
+}
+]
+*)
+
