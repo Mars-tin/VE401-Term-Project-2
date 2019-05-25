@@ -7,3 +7,22 @@ In this project, we are going to use data above, applying mathematical methods w
 
 ## Key Words
 Fatal police shootings, Poisson distribution, Confidence interval, Prediction interval, Mathematica.
+
+## References
+[1] D. Spiegelhalter and A. Barnett. London murders: a predictable pattern? Significance, 6(1):5-8, 2009. \url{http://onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2009.00334.x/abstract}. [Online; accessed 15-April-2019].
+
+[2] H. Hohberger. "ve401\uline{ }main.pdf"(2018). UMJI-SJTU, Shanghai. [Online; accessed 25-Feb-2019]. 
+
+[3] DateHistogram. Wolfram. 2019. \url{https://reference.wolfram.com/language/ref/DateHistogram.html}.
+
+[4] J. Tate, J. Jenkins, S. Rich, J. Muyskens, K. Elliott, T. Mellnik and A. Williams. How The Washington Post is examining police shootings in the United States. The Washington Post. July 7, 2016. \url{https://www.washingtonpost.com/national/how-the-washington-post-is-examining-police-shootings-in-the-united-states/2016/07/07/d9c52238-43ad-11e6-8856-f26de2537a9d_story.html?utm_term=.d357cd563cc4}. [Online; accessed 15-April-2019].
+
+[5] K.Krishnamoorthy and J.Peng. Improved closed-form prediction intervals for binomial and Poisson distributions. Journal of Statistical Planning and Inference, 141(5):1709-1718, 2011. \url{http://www.sciencedirect.com/science/article/pii/S0378375810005215}. [Online; accessed 15-April-2019].
+
+[6] Washington Post. Data-police-shootings. GitHub. \url{https://github.com/washingtonpost/data-police-shootings}. [Online; accessed 15-April-2019].
+
+[7] Washington Post. Police Shootings 2019. \url{https://www.washingtonpost.com/graphics/2019/national/police-shootings-2019/?utm_term=.b08ecc24520c}. [Online; accessed 21-April-2019].
+
+[8] H. Wang. 2008. Coverage probability of prediction intervals for discrete random variables. Computational Statistics and Data Analysis 53, 17-26.
+
+[9] Wikipedia. Poisson Distribution, \textit{wikipedia}, the free encyclopedia, 2019. \url{https://en.wikipedia. org/wiki/Poisson_distribution} [Online; accessed 20-April-2019]. 
