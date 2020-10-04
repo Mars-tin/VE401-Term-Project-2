@@ -1,7 +1,15 @@
 # VE401-Term-Project-2
 VE401 Term Proj 2, SP2019
 
+<<<<<<< HEAD
+
+
+![Demonstration](https://github.com/Mars-tin/shooting-cases-analysis/blob/master/figs/demo.png)
+
+
+=======
 ![Demonstration](https://github.com/Mars-tin/shooting-cases-analysis/blob/master/figs/predictapril.pdf)
+>>>>>>> 6b401a24384b6f7f915b18e6cb62fad87c552a5b
 
 ## Abstract
 David Spiegelhalter and Arthur Barnett's *London Murder* analyses murder cases in London between 2004 and 2007. Also, *Washington Post* provides a database recording the occurrence of fatal police shootings. *Washington Post* claims that there have been 270 citizen killed by police shooting since 2019, as of March 15th.
